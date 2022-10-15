@@ -1,5 +1,9 @@
 package com.example.IHubserver.Dao;
 
+import com.example.IHubserver.Entity.Brand;
+import com.example.IHubserver.Entity.Device;
+import com.example.IHubserver.Entity.Memory;
+import com.example.IHubserver.Entity.Storage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +17,8 @@ public class ItemDao {
     private String model;
     private Double price;
     private String specs;
-    private Integer brand_id;
-    private Integer device_id;
-    private Integer storage_id;
-    private Integer memory_id;
+    private Brand brand;
+    private Device device;
+    private Storage storage;
+    private Memory memory;
 }
