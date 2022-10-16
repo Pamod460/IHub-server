@@ -21,9 +21,18 @@ public class ItemService {
     private ModelMapper modelMapper;
 
 
+
+
     public List <ItemDao> getAll(){
         List<Item> itemList = itemRepo.findAll();
         return modelMapper.map(itemList, new TypeToken<List<ItemDao>>() {}.getType());
 
     }
+
+    public ItemDao getById(String Id){
+        Item item = itemRepo.getById(Id);
+        return  modelMapper.map(item, ItemDao.class);
+    }
+
+
 }
