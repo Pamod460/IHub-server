@@ -1,8 +1,6 @@
 package com.example.IHubserver.Service;
 
 import com.example.IHubserver.Dao.BrandDao;
-import com.example.IHubserver.Dao.BrandDao;
-import com.example.IHubserver.Entity.Brand;
 import com.example.IHubserver.Entity.Brand;
 import com.example.IHubserver.Repo.BrandRepo;
 import org.modelmapper.ModelMapper;
