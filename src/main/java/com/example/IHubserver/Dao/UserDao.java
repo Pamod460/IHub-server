@@ -1,18 +1,16 @@
 package com.example.IHubserver.Dao;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
+import com.example.IHubserver.Entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserDao {
-    private Integer id;
-    private String username;
-    private String password;
-    private String email;
-    private String mobile;
+public interface UserDao extends JpaRepository<User,Integer> {
+
+    @Query(value = "select*from user where id=?1", nativeQuery = true)
+    User getById(String userid);
+
+    @Query(value = "select*from user where username=?1 and password=?2 ", nativeQuery = true)
+    User getByUser(String username, String password);
+
 }

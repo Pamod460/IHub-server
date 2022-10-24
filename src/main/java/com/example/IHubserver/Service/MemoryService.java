@@ -1,8 +1,7 @@
 package com.example.IHubserver.Service;
 
-import com.example.IHubserver.Dao.MemoryDao;
 import com.example.IHubserver.Entity.Memory;
-import com.example.IHubserver.Repo.MemoryRepo;
+import com.example.IHubserver.Dao.MemoryDao;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +15,19 @@ import java.util.List;
 public class MemoryService {
 
     @Autowired
-    private MemoryRepo memoryRepo;
+    private MemoryDao memoryDao;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<MemoryDao> getAll(){
-        List<Memory> memoryList = memoryRepo.findAll();
-        return modelMapper.map(memoryList,new TypeToken<List<MemoryDao>>(){}.getType());
+    public List<Memory> getAll(){
+        List<Memory> memoryList = memoryDao.findAll();
+        return modelMapper.map(memoryList,new TypeToken<List<Memory>>(){}.getType());
     }
 
-    public MemoryDao getById(String memoryId){
-        Memory memory = memoryRepo.getById(memoryId);
-        return  modelMapper.map(memory, MemoryDao.class);
+    public Memory getById(String memoryId){
+        Memory memory = memoryDao.getById(memoryId);
+        return  modelMapper.map(memory, Memory.class);
     }
 
 }

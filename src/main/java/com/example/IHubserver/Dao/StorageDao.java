@@ -1,13 +1,12 @@
 package com.example.IHubserver.Dao;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.IHubserver.Entity.Storage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class StorageDao {
-    private Integer id;
-    private String name;
+public interface StorageDao extends JpaRepository<Storage, Integer> {
+
+    @Query(value = "select*from brand where id=?1", nativeQuery = true)
+    Storage getById(String storageId);
+
 }

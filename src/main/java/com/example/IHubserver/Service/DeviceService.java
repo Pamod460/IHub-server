@@ -1,10 +1,7 @@
 package com.example.IHubserver.Service;
 
-import com.example.IHubserver.Dao.DeviceDao;
-import com.example.IHubserver.Dao.ItemDao;
 import com.example.IHubserver.Entity.Device;
-import com.example.IHubserver.Entity.Item;
-import com.example.IHubserver.Repo.DeviceRepo;
+import com.example.IHubserver.Dao.DeviceDao;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +15,19 @@ import java.util.List;
 public class DeviceService {
 
     @Autowired
-    private DeviceRepo deviceRepo;
+    private DeviceDao devicedao;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<DeviceDao> getAll(){
-        List <Device> deviceList = deviceRepo.findAll();
-        return modelMapper.map(deviceList,new TypeToken<List<DeviceDao>>() {}.getType());
+    public List<Device> getAll(){
+        List <Device> deviceList = devicedao.findAll();
+        return modelMapper.map(deviceList,new TypeToken<List<Device>>() {}.getType());
     }
 
-    public DeviceDao getById(String Id){
-        Device device = deviceRepo.getById(Id);
-        return  modelMapper.map(device, DeviceDao.class);
+    public Device getById(String Id){
+        Device device = devicedao.getById(Id);
+        return  modelMapper.map(device, Device.class);
     }
 
 }

@@ -1,14 +1,12 @@
 package com.example.IHubserver.Dao;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.IHubserver.Entity.Device;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class DeviceDao {
-    private Integer id;
-    private String type;
+public interface DeviceDao extends JpaRepository<Device,Integer> {
+
+    @Query(value = "select*from device where id=?1", nativeQuery = true)
+    Device getById(String deviceId);
 
 }

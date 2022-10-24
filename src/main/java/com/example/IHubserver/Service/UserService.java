@@ -1,8 +1,7 @@
 package com.example.IHubserver.Service;
 
-import com.example.IHubserver.Dao.UserDao;
 import com.example.IHubserver.Entity.User;
-import com.example.IHubserver.Repo.UserRepo;
+import com.example.IHubserver.Dao.UserDao;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +15,32 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserDao userDao;
     @Autowired
     private ModelMapper modelMapper;
 
 
-    public List<UserDao> getAll(){
-        List<User> userList = userRepo.findAll();
-        return modelMapper.map(userList,new TypeToken<List<UserDao>>(){}.getType());
+    public List<User> getAll() {
+        List<User> userList = userDao.findAll();
+        return modelMapper.map(userList, new TypeToken<List<User>>() {
+        }.getType());
     }
 
-    public UserDao getById(String userId){
-        User user = userRepo.getById(userId);
-        return  modelMapper.map(user, UserDao.class);
+    public User getById(String userId) {
+        User user = userDao.getById(userId);
+        return modelMapper.map(user, User.class);
     }
 
-    public UserDao getByUser(String username,String password){
-        User user = userRepo.getByUser(username,password);
-        return  modelMapper.map(user, UserDao.class);
+    public User getByUser(String username, String password) {
+        User user = userDao.getByUser(username, password);
+        return modelMapper.map(user, User.class);
     }
 
-    public UserDao addUser(UserDao userDao) {
+    public User save(User user) {
 
-        userRepo.save(modelMapper.map(userDao, User.class));
-        return userDao;
+        userDao.save(modelMapper.map(user, User.class));
+        return user;
     }
-
 
 
 }

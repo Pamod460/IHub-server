@@ -1,7 +1,7 @@
 package com.example.IHubserver.Controller;
 
-import com.example.IHubserver.Dao.MemoryDao;
-import com.example.IHubserver.Dao.MemoryDao;
+
+import com.example.IHubserver.Entity.Memory;
 import com.example.IHubserver.Service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +18,13 @@ public class MemoryController {
 
     @GetMapping("memories")
 
-    public List<MemoryDao> get() {
+    public List<Memory> get() {
         return memoryService.getAll();
     }
 
     @GetMapping("memories/id/{memoryId}")
 
-    public MemoryDao getById(@PathVariable String memoryId) {
+    public Memory getById(@PathVariable String memoryId) {
         return memoryService.getById(memoryId);
     }
 

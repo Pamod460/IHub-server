@@ -1,6 +1,6 @@
 package com.example.IHubserver.Controller;
 
-import com.example.IHubserver.Dao.BrandDao;
+import com.example.IHubserver.Entity.Brand;
 import com.example.IHubserver.Service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +18,13 @@ public class BrandController {
 
     @GetMapping("brands")
 
-    public List<BrandDao> get(){
+    public List<Brand> get(){
         return brandService.getAll();
     }
 
     @GetMapping("brands/id/{brandId}")
 
-    public BrandDao getById(@PathVariable String brandId) {
+    public Brand getById(@PathVariable String brandId) {
         return brandService.getById(brandId);
     }
 
