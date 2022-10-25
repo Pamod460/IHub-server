@@ -1,7 +1,6 @@
 package com.example.IHubserver.Entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
@@ -24,4 +23,5 @@ public class User {
     private String email;
     @Column(name = "mobile")
     private String mobile;
+
 }

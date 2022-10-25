@@ -12,29 +12,22 @@ import javax.persistence.*;
 @Entity
 @Data
 @ToString
-@Table(name="item")
+@Table(name = "item")
 public class Item {
-
     @Id
     @Column(name = "id")
     private Integer id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "model")
     private String model;
-
     @Column(name = "price")
     private Double price;
-
     @Column(name = "specs")
     private String specs;
-
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     @ManyToOne
     private Brand brand;
-
     @JoinColumn(name = "device_id", referencedColumnName = "id")
     @ManyToOne
     private Device device_id;

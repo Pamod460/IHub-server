@@ -12,18 +12,15 @@ import java.util.List;
 @CrossOrigin
 
 public class BrandController {
-
     @Autowired
     private BrandService brandService;
 
     @GetMapping("brands")
-
-    public List<Brand> get(){
+    public List<Brand> get() {
         return brandService.getAll();
     }
 
     @GetMapping("brands/id/{brandId}")
-
     public Brand getById(@PathVariable String brandId) {
         return brandService.getById(brandId);
     }

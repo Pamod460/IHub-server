@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ihub/server/")
+@RequestMapping(value = "/ihub/server/")
 @CrossOrigin
 
 public class UserController {
@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping("users")
 
-    public List<User> get(){
+    public List<User> get() {
         return userService.getAll();
     }
 
@@ -28,13 +28,15 @@ public class UserController {
         return userService.getById(userId);
     }
 
-    @PostMapping("users/user")
-    public User getByUser(@RequestBody String username, String password) {
-        return userService.getByUser( username, password);
+    @PostMapping("users/login/")
+    public User getByUser(@RequestBody User user) {
+        String username= user.getUsername();
+        String password=user.getPassword();
+        return userService.getByUser(username, password);
     }
-    @PostMapping("users")
-    public User save(@RequestBody User user) {
 
+    @PostMapping("users/save")
+    public User save(@RequestBody User user) {
         return userService.save(user);
     }
 

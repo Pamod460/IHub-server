@@ -12,18 +12,15 @@ import java.util.List;
 @RequestMapping("/ihub/server/")
 @CrossOrigin
 public class MemoryController {
-
     @Autowired
     private MemoryService memoryService;
 
     @GetMapping("memories")
-
     public List<Memory> get() {
         return memoryService.getAll();
     }
 
     @GetMapping("memories/id/{memoryId}")
-
     public Memory getById(@PathVariable String memoryId) {
         return memoryService.getById(memoryId);
     }

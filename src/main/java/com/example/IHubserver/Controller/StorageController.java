@@ -13,14 +13,11 @@ import java.util.List;
 @CrossOrigin
 
 public class StorageController {
-
     @Autowired
     private StorageService storageService;
 
     @GetMapping("storages")
-
-    public List<Storage> get(){
-
+    public List<Storage> get() {
         return storageService.getAll();
     }
 
@@ -29,7 +26,6 @@ public class StorageController {
     public Storage getById(@PathVariable String storageId) {
         return storageService.getById(storageId);
     }
-
 
 
 }

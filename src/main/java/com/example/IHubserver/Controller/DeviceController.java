@@ -12,22 +12,17 @@ import java.util.List;
 @CrossOrigin
 
 public class DeviceController {
-
     @Autowired
     private DeviceService deviceService;
 
     @GetMapping("devices")
-
     public List<Device> get() {
-
         return deviceService.getAll();
     }
 
     @GetMapping("devices/id/{deviceId}")
-
     public Device getById(@PathVariable String deviceId) {
         return deviceService.getById(deviceId);
     }
-
 
 }
