@@ -23,20 +23,23 @@ public class Item {
     private String model;
     @Column(name = "price")
     private Double price;
-    @Column(name = "specs")
-    private String specs;
+    @Column(name = "specifications")
+    private String specifications;
+    @Column(name = "photo")
+    private byte[] photo;
+
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     @ManyToOne
     private Brand brand;
-    @JoinColumn(name = "device_id", referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     @ManyToOne
-    private Device device_id;
+    private Category category;
 
     @JoinColumn(name = "storage_id", referencedColumnName = "id")
     @ManyToOne
-    private Storage storage_id;
+    private Storage storage;
 
     @JoinColumn(name = "memory_id", referencedColumnName = "id")
     @ManyToOne
-    private Memory memory_id;
+    private Memory memory;
 }

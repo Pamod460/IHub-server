@@ -15,12 +15,12 @@ import javax.persistence.Table;
 @Entity
 @Data
 @ToString
-@Table(name = "Device")
-public class Device {
+@Table(name = "category")
+public class Category {
     @Id
     @Column(name = "id")
     private Integer id;
-    @Column(name = "type")
+    @Column(name = "name")
     private String type;
 
 }

@@ -28,10 +28,10 @@ public class UserController {
         return userService.getById(userId);
     }
 
-    @PostMapping("users/login/")
+    @PostMapping("users/login")
     public User getByUser(@RequestBody User user) {
-        String username= user.getUsername();
-        String password=user.getPassword();
+        String username = user.getUsername();
+        String password = user.getPassword();
         return userService.getByUser(username, password);
     }
 
